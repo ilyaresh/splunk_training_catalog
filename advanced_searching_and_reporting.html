@@ -1,0 +1,1697 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head><base href="https://education.splunk.com/instructor-led-training/advanced-searching-and-reporting-with-splunk-80">
+        <title>Advanced Searching and Reporting with Splunk 8.0 - Splunk</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="generator" content="Learndot Enterprise 2020.2.8.0 #23c0f61" />
+
+<meta name="keywords" content="training, advanced, searching, reporting, splunk, 8.0" />
+
+<!-- catalog.css.core -->
+<link href="/css/catalog/lde-core.css?v=23c0f61" rel="stylesheet" type="text/css" />
+<!-- catalog.css.skin -->
+<link href="/static/skin/lde-skin-splunk/lde-skin.css?v=0215" rel="stylesheet" type="text/css" />
+<!-- catalog.css.branding -->
+<link href="/static/skin/lde-skin-splunk/lde-branding.css?v=0215" rel="stylesheet" type="text/css" />
+<!-- catalog.css.inline -->
+<style type="text/css">
+    /* Hide accordion heading */
+#training-public-course-event-page .accordion-group h2.content-section-title {
+	display: none;
+}
+
+/* Hide request quote widget */
+#request-quote-widget {
+	display: none;	
+}
+
+/* Upcoming classes widget styling */
+#upcomming-classes-widget .buttons {
+    position: inherit;
+}
+#upcomming-classes-widget .widget > div:last-child { 
+	display: none 
+}
+
+/* Pagination styling */
+.lde-core .pagination > li > a, 
+.lde-core .pagination > li > span {
+	color: #2eb50b;
+}
+.lde-core .pagination > li > a:hover, 
+.lde-core .pagination > li > span:hover, 
+.lde-core .pagination > li > a:focus, 
+.lde-core .pagination > li > span:focus {
+	border-color: #2eb50b;
+}
+.lde-core .pagination > .active > a:hover, 
+.lde-core .pagination > .active > span:hover {
+	background: #2eb50b;
+	color: #fff;
+}
+.lde-core .pagination > li > a:hover, 
+.lde-core .pagination > li > span:hover, 
+.lde-core .pagination > li > a:focus, 
+.lde-core .pagination > li > span:focus {
+	color: #2eb50b;
+}
+
+/* Hide shopping cart save as quote */
+#shopping-cart-page .btn.save-as-quote,
+#shopping-cart-page .help,
+#shopping-cart-page #checkoutform button.dropdown-toggle {
+	display: none;
+}
+#shopping-cart-page #checkoutform #checkoutactions .btn-primary {
+	border-radius: 4px;
+	margin-bottom: 24px;
+}
+
+/* Hide class details */
+#content-section-confirmed,
+#content-section-instructors,
+#content-section-event-class-size,
+#content-section-references {
+	display: none;
+}</style>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="icon" href="/static/skin/lde-skin-splunk/resources/images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/static/skin/lde-skin-splunk/resources/images/favicon.ico" type="image/x-icon" />
+<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+
+<script
+  src="//code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script
+  src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/libs/jquery/plugins/sharrre-1.3.5-beta/jquery.sharrre.min.js"></script>
+<script defer
+        src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+        integrity="sha256-1A78rJEdiWTzco6qdn3igTBv9VupN3Q1ozZNTR4WE/Y="
+        crossorigin="anonymous"></script>
+
+<script defer src="https://na-gateway.mastercard.com/form/version/37/merchant/TESTSERVROCKET/session.js"></script>
+<script defer src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-transition.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-alert.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-modal.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-dropdown.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-scrollspy.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-tab.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-tooltip.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-popover.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-button.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-collapse.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-carousel.js"></script>
+<script defer src="/js/libs/bootstrap/bootstrap-2.0.6/bootstrap-typeahead.js"></script>
+
+<script defer src="/js/app/common/trainingrocket.js?v=23c0f61"></script>
+<script defer src="/js/app/common/script.js?v=23c0f61"></script>
+<script defer src="/js/app/user/script.js?v=23c0f61"></script>
+
+<script type="text/javascript" src="/static/skin/lde-skin-default/resources/javascript/responsive-tables.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/static/skin/lde-skin-splunk/resources/css/clientlib.css" type="text/css">
+<link rel="stylesheet" href="/static/skin/lde-skin-splunk/resources/css/dist.css" type="text/css">
+
+<script type="text/javascript">
+   /* Create a configuration object */
+   var ss360Config = {
+      /* Your site id */
+      siteId: 'splunk.trainingrocket.com_1',
+      /* A CSS selector that points to your search  box */
+      searchBox: {selector: '#query, #unibox-special-searchbox'}
+   };
+</script>
+<script src="https://cdn.sitesearch360.com/v13/sitesearch360-v13.min.js" async></script><!-- /course/head/og-viewCourse.ftl widget start -->
+    
+
+<meta property="og:url"                content="https://education.splunk.com/instructor-led-training/advanced-searching-and-reporting-with-splunk-80" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="Advanced Searching and Reporting with Splunk 8.0" />
+<meta property="og:image"              content="https://education.splunk.com/static/images/logos/__ProductOverview.jpg" /><!-- /course/head/og-viewCourse.ftl widget end -->
+
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"f0dbcb6faf",applicationID:"160575401"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1169.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script></head>
+
+    <body id="training-course-page" class="ui-front ui-site training-course-page main_layout-body-withblurbs">
+
+        
+
+
+
+
+<div class="lde-core">
+
+
+
+
+
+</div>
+
+<div class="lde-branding">
+<div class="blurb">
+<header id="header" class="" style="">
+
+    <div class="iparsys parsys">
+        <div class="section">
+            <div class="new"></div>
+        </div>
+        <div class="iparys_inherited">
+            <div class="iparsys parsys">
+                <div class="globalHeader-v2 parbase section">
+                    <div class="splunk-header-v3 ">
+                        <nav class="navbar navbar-default navbar-fixed-top navbar-splunk-v3">
+                            <div class="container-fluid custom-masthead">
+                                <div class="navbar-header" style="">
+                                    <a class="navbar-brand topnav" href="https://www.splunk.com">
+                                        <img src="/static/skin/lde-skin-splunk/resources/images/logos/splunk-logo.svg" alt="Splunk" title="Splunk">
+                                    </a>
+
+                                </div>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown" id="topnav-100012">
+                                        <a href="#" class="dropdown-toggle cm-link topnav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="splunk-icon icon-expanded-user-icon"></span><span class="caret"></span><span id="loggedinusername"> </span></a>
+                                        <ul id="account" class="dropdown-menu cm-dropdown icon-flyout account">
+                                                                                        <li><a id="loginId" href="/login.html" class="topnav">Login</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="container-fluid masthead">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <a class="navbar-brand topnav" href="https://www.splunk.com">
+                                        <img src="/static/skin/lde-skin-splunk/resources/images/logos/splunk-logo.svg" alt="Splunk" title="Splunk">
+                                    </a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling (removed unused class="collapse navbar-collapse") -->
+                                <div id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav navbar-left">
+
+                                        <li class="dropdown mega-menu-nav" id="topnav-100003">
+                                            <a href="/catalog" class="dropdown-toggle topnav" role="button" aria-haspopup="true" aria-expanded="false">Catalog <span class="caret"></span></a>
+                                        </li>
+
+                                        <li class="dropdown mega-menu-nav" id="topnav-100004">
+                                            <a href="/classes" class="dropdown-toggle topnav" role="button" aria-haspopup="true" aria-expanded="false">Schedule <span class="caret"></span></a>
+                                        </li>
+
+                                    </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+
+                                        <li class="dropdown mega-menu-nav" id="topnav-100013">
+
+                                            <a href="#" class="dropdown-toggle search-icon topnav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <span class="splunk-icon icon-expanded-search-icon"></span>
+                                                <span class="splunk-icon icon-expanded-close-btn"></span>
+                                            </a>
+
+                                            <div class="dropdown-menu" style="opacity: 1;">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="input-group">
+                                                            <form action="/en_us/search.html" id="searchForm" method="get" __bizdiag="107944136" __biza="WJ__">
+                                                                <input class="form-control mm-input" placeholder="Search" type="text" value="" id="query" name="query" data-com.onepassword.iv="">
+                                                                <span class="splunk-icon icon-expanded-search-icon form-control-feedback"></span>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li id="topnav-100014">
+                                            <div class="free-splunk">
+                                                <a id="free-splunk-click-desktop" href="https://www.splunk.com/en_us/download.html" class="btn hidden-xs express-lane-open topnav">
+                            Free Splunk
+                        </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /.navbar-collapse -->
+                            </div>
+                            <!-- /.container-fluid -->
+
+                        </nav>
+                    </div>
+
+                    <!-- Start header mobile rendering -->
+                    <div class="splunk-header-v3-mobile">
+                        <nav>
+                            <div class="header-main">
+                                <a href="https://www.splunk.com" class="logo topnav"><img src="/static/skin/lde-skin-splunk/resources/images/logos/splunk-logo.svg" alt="Splunk" title="Splunk"></a>
+
+                                <a href="https://www.splunk.com/en_us/download.html" class="free-splunk-mobile explress-lane-open express-lane-open topnav" id="free-splunk-click-mobile">Free Splunk</a>
+                                <div class="hamburger-container collapsed" data-toggle="collapse-custom" data-target="#header-collapse" aria-expanded="false">
+                                    <span class="splunk-icon icon-splunkcom-hamburger"></span>
+                                    <span class="splunk-icon icon-expanded-close-btn"></span>
+                                </div>
+                            </div>
+                            <div class="header-collapse collapse" id="header-collapse" style="height: 0px;">
+
+                                <div class="search">
+                                    <form action="/en_us/search.html" id="searchForm" method="get" __bizdiag="107944136" __biza="WJ__">
+                                        <input type="text" placeholder="Search" name="query" id="query" value="" class="form-control">
+                                        <span class="splunk-icon icon-expanded-search-icon"></span>
+                                    </form>
+                                </div>
+                                <div id="mobile-account" class="account-items">
+                                    <span class="splunk-icon icon-expanded-user-icon"></span>
+                                    <a id="loginId" href="/login.html" class="login topnav">Login</a>
+                                </div>
+
+                                <!-- menu title and list items -->
+
+                                <div class="generic-menu-title darkened-menu-title collapsed">
+                                    <div class="separator-top"></div>
+                                    <a href="/catalog" class="topnav">Catalog</a>
+                                </div>
+
+                                <!-- END of menu title and list items -->
+
+                                <!-- menu title and list items -->
+
+                                <div class="generic-menu-title darkened-menu-title collapsed">
+                                    <div class="separator-top"></div>
+                                    <a href="/classes" class="topnav">Schedule</a>
+                                </div>
+
+                                <!-- END of menu title and list items -->
+
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- End header mobile rendering -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="subNav parbase">
+
+        <nav class="subnav subnav-scroll-custom" style="display: none;">
+            <div class="container">
+                <div class="row">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+</header>
+
+<div class="l1-splunkproducts carousel list parbase section">
+
+    <section class="splunk_products" id="">
+        <div class="bg-position" style="background-image: url(/static/skin/lde-skin-splunk/resources/images/Banners/education.jpg)"></div>
+        <div class="container">
+            <div class="row splunk_products-row">
+
+                <div class="col-md-12 col-lg-12">
+
+                    <h1 class="splunk-color splunk-white" style="font-weight: 700;">
+                            Advanced Searching and Reporting with Splunk 8.0
+                    </h1>
+
+                </div>
+                <div class="col-ms-8 col-lg-8 col-md-offset-2 col-lg-offset-2 ">
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div></div> <!-- blurb -->
+</div>
+
+<div class="lde-core">
+
+
+    <div id="main">
+        <div id="main-outer" class="page-part">
+            <div id="main-content" class="content-part">
+                <h1 class="title">
+                        Advanced Searching and Reporting with Splunk 8.0
+                </h1>
+                <div id="content">
+
+
+
+
+
+
+
+
+
+
+
+        <div id="content-section-title"
+             class="content-section-wrapper  clearfix">
+                <a name="title" class="content-section-anchor"></a>
+            <div class="content-section">
+                    <h2 class="training-course-page__name">Advanced Searching and Reporting with Splunk 8.0</h2>
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <div id="content-section-upcomingClasses"
+             class="content-section-wrapper  clearfix">
+                <a name="upcomingClasses" class="content-section-anchor"></a>
+                <h2 class="content-section-title">
+                    
+                    <span>Upcoming Classes</span>
+                    
+                </h2>
+            <div class="content-section">
+                    
+
+    
+            <h3>Online</h3>
+                <p>
+Instructor-led online training                </p>
+
+
+
+    <table class="table class-schedule">
+
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Jun 2020</th>
+                    <th>Jul 2020</th>
+                    <th>Aug 2020</th>
+                    <th>Sep 2020</th>
+                    <th>Oct 2020</th>
+                    <th>Nov 2020</th>
+                    <th>Dec 2020</th>
+            </tr>
+        </thead>
+
+
+
+
+            <tr>
+                <td><a href="/location/amer-pac-time">AMER Pacific Time - Virtual</a></td>
+                <td class="class-schedule-date">
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-08_269" class="confirmed"><span style="white-space: nowrap;">Jul 8</span>&nbsp;&ndash; <span style="white-space: nowrap;">Jul 10<span></a><br/>
+                    
+
+
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-29_273" class="confirmed"><span style="white-space: nowrap;">Jul 29</span>&nbsp;&ndash; <span style="white-space: nowrap;">Jul 31<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-05_276" class="confirmed"><span style="white-space: nowrap;">Aug 5</span>&nbsp;&ndash; <span style="white-space: nowrap;">Aug 7<span></a><br/>
+                    
+
+
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-19_272" class="confirmed"><span style="white-space: nowrap;">Aug 19</span>&nbsp;&ndash; <span style="white-space: nowrap;">Aug 21<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-02_280" class="confirmed"><span style="white-space: nowrap;">Sep 2</span>&nbsp;&ndash; <span style="white-space: nowrap;">Sep 4<span></a><br/>
+                    
+
+
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-23_274" class="confirmed"><span style="white-space: nowrap;">Sep 23</span>&nbsp;&ndash; <span style="white-space: nowrap;">Sep 25<span></a><br/>
+                    
+
+
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-30_279" class="confirmed"><span style="white-space: nowrap;">Sep 30</span>&nbsp;&ndash; <span style="white-space: nowrap;">Oct 2<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-10-28_284" class="confirmed"><span style="white-space: nowrap;">Oct 28</span>&nbsp;&ndash; <span style="white-space: nowrap;">Oct 30<span></a><br/>
+                            </td><td class="class-schedule-date">
+                            </td><td class="class-schedule-date">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td><a href="/location/amer-eastern-time-gmt">AMER Eastern Time - Virtual</a></td>
+                <td class="class-schedule-date">
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-08_270" class="confirmed"><span style="white-space: nowrap;">Jul 8</span>&nbsp;&ndash; <span style="white-space: nowrap;">Jul 10<span></a><br/>
+                    
+
+
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-13_271" class="confirmed"><span style="white-space: nowrap;">Jul 13</span>&nbsp;&ndash; <span style="white-space: nowrap;">Jul 15<span></a><br/>
+                    
+
+
+                        <a href="/class/advanced-searching-and-reporting/advanced-searching-and-reporting-with-splunk-80/amer-eastern-time-gmt/2020-07-20" class="confirmed"><span style="white-space: nowrap;">Jul 20</span>&nbsp;&ndash; <span style="white-space: nowrap;">Jul 22<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-12_278" class="confirmed"><span style="white-space: nowrap;">Aug 12</span>&nbsp;&ndash; <span style="white-space: nowrap;">Aug 14<span></a><br/>
+                    
+
+
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-26_273" class="confirmed"><span style="white-space: nowrap;">Aug 26</span>&nbsp;&ndash; <span style="white-space: nowrap;">Aug 28<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-09_275" class="confirmed"><span style="white-space: nowrap;">Sep 9</span>&nbsp;&ndash; <span style="white-space: nowrap;">Sep 11<span></a><br/>
+                    
+
+
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-16_277" class="confirmed"><span style="white-space: nowrap;">Sep 16</span>&nbsp;&ndash; <span style="white-space: nowrap;">Sep 18<span></a><br/>
+                    
+
+
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-30_281" class="confirmed"><span style="white-space: nowrap;">Sep 30</span>&nbsp;&ndash; <span style="white-space: nowrap;">Oct 2<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-10-05_282" class="confirmed"><span style="white-space: nowrap;">Oct 5</span>&nbsp;&ndash; <span style="white-space: nowrap;">Oct 7<span></a><br/>
+                    
+
+
+                        <a href="/class/advanced-searching-and-reporting/advanced-searching-and-reporting-with-splunk-80/amer-eastern-time-gmt/2020-10-14" class="confirmed"><span style="white-space: nowrap;">Oct 14</span>&nbsp;&ndash; <span style="white-space: nowrap;">Oct 16<span></a><br/>
+                            </td><td class="class-schedule-date">
+                            </td><td class="class-schedule-date">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td><a href="/location/emea-utc">EMEA UK Time - Virtual</a></td>
+                <td class="class-schedule-date">
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-22_26" class="confirmed"><span style="white-space: nowrap;">Jul 22</span>&nbsp;&ndash; <span style="white-space: nowrap;">Jul 24<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-12_22" class="confirmed"><span style="white-space: nowrap;">Aug 12</span>&nbsp;&ndash; <span style="white-space: nowrap;">Aug 14<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-09_23" class="confirmed"><span style="white-space: nowrap;">Sep 9</span>&nbsp;&ndash; <span style="white-space: nowrap;">Sep 11<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-10-07_24" class="confirmed"><span style="white-space: nowrap;">Oct 7</span>&nbsp;&ndash; <span style="white-space: nowrap;">Oct 9<span></a><br/>
+                    
+
+
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-10-28_25" class="confirmed"><span style="white-space: nowrap;">Oct 28</span>&nbsp;&ndash; <span style="white-space: nowrap;">Oct 30<span></a><br/>
+                            </td><td class="class-schedule-date">
+                            </td><td class="class-schedule-date">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td><a href="/location/apac-singapore">APAC Singapore - Virtual</a></td>
+                <td class="class-schedule-date">
+                    
+
+
+                                </td><td class="class-schedule-date">
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-19_180" class="confirmed"><span style="white-space: nowrap;">Aug 19</span>&nbsp;&ndash; <span style="white-space: nowrap;">Aug 21<span></a><br/>
+                    
+
+
+                                </td><td class="class-schedule-date">
+                        <a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-23_181" class="confirmed"><span style="white-space: nowrap;">Sep 23</span>&nbsp;&ndash; <span style="white-space: nowrap;">Sep 25<span></a><br/>
+                            </td><td class="class-schedule-date">
+                            </td><td class="class-schedule-date">
+                            </td><td class="class-schedule-date">
+                </td>
+            </tr>
+
+
+            <tr>
+                <td><a href="/location/ingeniq">Ingeniq</a></td>
+                <td class="class-schedule-date">
+                    
+
+
+                                </td><td class="class-schedule-date">
+                                </td><td class="class-schedule-date">
+                                </td><td class="class-schedule-date">
+                        <a href="/class/advanced-searching-and-reporting/advanced-searching-and-reporting-with-splunk-80/ingeniq/2020-09-16" class="not-confirmed"><span style="white-space: nowrap;">Sep 16</span>&nbsp;&ndash; <span style="white-space: nowrap;">Sep 18<span></a><br/>
+                            </td><td class="class-schedule-date">
+                            </td><td class="class-schedule-date">
+                            </td><td class="class-schedule-date">
+                </td>
+            </tr>
+    </table>
+    
+<div class="blurb blurb-placeholder" style="display:none;">
+<a style="display: none;" id="trainingScheduleWithConfirmedClassesMessage" class="inlineAdminLink" href="/admin/blurb/edit/84.html" title="Edit"><img src="/images/icons/edit.png" alt="Edit"/></a> <p><em>[trainingScheduleWithConfirmedClassesMessage]</em></p></div>    
+
+
+            </div>
+        </div>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="buy">
+                    </div>
+    </div>
+</div>    <img class="content-photo logo" src="/static/images/logos/splunk-user.svg" alt="" />
+
+        <div id="content-section-summary"
+             class="content-section-wrapper  clearfix">
+                <a name="summary" class="content-section-anchor"></a>
+                <h2 class="content-section-title">
+                    
+                    <span>Summary</span>
+                    
+                </h2>
+            <div class="content-section">
+                            This 13 hour course supplements the Splunk Fundamentals 3 class. It focuses on more advanced search and reporting commands. Scenario-based examples and hands-on challenges enable users to create robust searches, reports, and charts. Students are coached step by step through complex searches to produce final results. Major topics include optimizing searches, additional charting commands and functions, formatting and calculating results, correlating events, and using combined searches and subsearches.
+
+            </div>
+        </div>
+        <div id="content-section-description"
+             class="content-section-wrapper  clearfix">
+                <a name="description" class="content-section-anchor"></a>
+                <h2 class="content-section-title">
+                    
+                    <span>Description</span>
+                    
+                </h2>
+            <div class="content-section">
+                        <div class="rte-container">
+
+<ul>
+<li><span class="splunk-education-list-green">Using Search Efficiently<br>
+ </span></li>
+<li><span class="splunk-education-list-green">More Search Tuning<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Manipulating and Filtering Data<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Working with Multivalue Fields<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Using Advanced Transactions<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Working with Time<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Combining Searches<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Using Subsearches</span><br>
+<li><span class="splunk-education-list-green">Some Extra tips</span><br>
+</li>
+</ul>
+
+
+
+            </div>
+
+            </div>
+        </div>
+        <div id="content-section-duration"
+             class="content-section-wrapper  clearfix">
+                <a name="duration" class="content-section-anchor"></a>
+                <h2 class="content-section-title">
+                    
+                    <span>Duration</span>
+                    
+                </h2>
+            <div class="content-section">
+                    <p>3 Days</p>
+
+            </div>
+        </div>
+        <div id="content-section-objectives"
+             class="content-section-wrapper  clearfix">
+                <a name="objectives" class="content-section-anchor"></a>
+                <h2 class="content-section-title">
+                    
+                    <span>Objectives</span>
+                    
+                </h2>
+            <div class="content-section">
+                                <p><div class="rte-container">
+            <p><h5>Module 1 – Using Search Efficiently</h5></p>
+<ul>
+<li><span class="splunk-education-list-green">Review search architecture<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Understand how the components of a bucket (.tsidx an djournal.gz files) are used</span></li>
+<li><span class="splunk-education-list-green">How bloom filters are used to improve search speed<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Describe the parts of a search string<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Understand the use of centralized vs. distributable commands<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Create better searches</span></li>
+</ul>
+<p><h5>Module 2 – More Search Tuning</h5></p>
+<ul>
+<li><span class="splunk-education-list-green">Understand how segmenters are used in Splunk<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Use lispy to reduce the number of events read from disk</span></li>
+</ul>
+<p><h5>Module 3 – Manipulating Data</h5></p>
+<ul>
+<li><span class="splunk-education-list-green">Divide search results into different groups, based on values in a specified field, using the bin command</span></li>
+<li><span class="splunk-education-list-green">Regroup fields of search results using untable and xyseries<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Create a template for performing additional processing on a set of related fields using foreach</span></li>
+</ul>
+<p><h5>Module 4 – Working with Multivalue Fields</h5></p>
+<ul>
+<li><span class="splunk-education-list-green">Use multivalue eval functions to analyze and format data<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Use the makemv command to convert a single value into a multivalue field<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Use the mvexpand command to create separate events for each value in a multivalue field</span></li>
+</ul>
+<p><h5>Module 5 – Using Advanced Transactions</h5></p>
+<ul>
+<li><span class="splunk-education-list-green">Find events logged before or after a particular event occurs<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Compare complete vs. incomplete transactions<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Analyze transactions</span></li>
+</ul>
+<p><h5>Module 6 – Working with Time</h5></p>
+<ul>
+<li><span class="splunk-education-list-green">Use time modifiers<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Search for events using custom time ranges and time windows<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Display and use using relative dates<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Use custom time ranges in multiple subsearches</span></li>
+</ul>
+<p><h5>Module 7 – Combining Searches</h5></p>
+<ul>
+<li><span class="splunk-education-list-green">Use the append and appendcols commands (and know the differences)<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Use join and union (and when not to use them)</span></li>
+</ul>
+<p><h5>Module 8 – Using Subsearches</h5></p>
+<ul>
+<li><span class="splunk-education-list-green">Use subsearches to provide filtering and other information to a main search<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Know when NOT to use subsearches<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Troubleshoot subsearches</span></li>
+</ul>
+<p><h5>Module 9 – Some Extra Tips</h5></p>
+<ul>
+<li><span class="splunk-education-list-green">Describe the use of regular expressions<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Provide some guidance on using lookups<br>
+ </span></li>
+<li><span class="splunk-education-list-green">Provide miscellaneous optimization tips</span><br>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;<br>
+</p>
+
+        </div></p>
+
+            </div>
+        </div>
+        <div id="content-section-prerequisites"
+             class="content-section-wrapper  clearfix">
+                <a name="prerequisites" class="content-section-anchor"></a>
+                <h2 class="content-section-title">
+                    
+                    <span>Prerequisites</span>
+                    
+                </h2>
+            <div class="content-section">
+                                <p><div class="rte-container">
+
+<ul>
+<li><span class="splunk-education-list-green">Splunk Fundamentals 1</span></li>
+<li><span class="splunk-education-list-green">Splunk Fundamentals 2</span></li>
+<li><span class="splunk-education-list-green">Splunk Fundamentals 3</span></li>
+<li><span class="splunk-education-list-green">Highly recommended: at least 6 months experience with the Splunk search language</span></li>
+</ul>
+
+            </div></p>
+
+            </div>
+        </div>
+
+                </div> <!-- #content -->
+                <div id="main-side" class="side-part">
+<div class="blurb">
+</div> <!-- blurb -->
+
+
+
+
+
+<div id="navigation-container">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="training-widget" id="request-quote-widget">
+                    <!-- request-quote-widget /store/training/requestQuote.ftl Start -->
+                    
+
+
+
+
+
+
+    <div class="widget">
+        <!-- start of onsite training -->
+        <h2 id="onsite-info">Onsite Training</h2>
+        <p><div class="blurb">
+<p>For groups of three or more</p></div> <!-- blurb -->
+</p>
+        <p><a href="/training/onsite.html?course=474" class="btn btn-primary">Request Quote</a></p>
+        <!-- end of onsite traning -->
+    </div>
+
+
+
+                    <!-- request-quote-widget /store/training/requestQuote.ftl End -->
+                </div>
+                <div class="training-widget" id="upcomming-classes-widget">
+                    <!-- upcomming-classes-widget /store/training/upcomingClasses.ftl Start -->
+                    
+
+
+
+
+
+    <div class="widget">
+        <!-- start of public training -->
+        <h2 id="public-training-info">
+            <span>Public Training</span>
+        </h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <h3>AMER Pacific Time - Virtual</h3>
+        <ul class="events-by-location-list">
+                                                                                                                
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-08_269" class="btn btn-primary">Jul 8
+
+                        &ndash; Jul 10
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-29_273" class="btn btn-primary">Jul 29
+
+                        &ndash; Jul 31
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-05_276" class="btn btn-primary">Aug 5
+
+                        &ndash; Aug 7
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-19_272" class="btn btn-primary">Aug 19
+
+                        &ndash; Aug 21
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-02_280" class="btn btn-primary">Sep 2
+
+                        &ndash; Sep 4
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-23_274" class="btn btn-primary">Sep 23
+
+                        &ndash; Sep 25
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-30_279" class="btn btn-primary">Sep 30
+
+                        &ndash; Oct 2
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-10-28_284" class="btn btn-primary">Oct 28
+
+                        &ndash; Oct 30
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+        </ul>
+            <h3>AMER Eastern Time - Virtual</h3>
+        <ul class="events-by-location-list">
+                                                                                                                                        
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-08_270" class="btn btn-primary">Jul 8
+
+                        &ndash; Jul 10
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-13_271" class="btn btn-primary">Jul 13
+
+                        &ndash; Jul 15
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/advanced-searching-and-reporting/advanced-searching-and-reporting-with-splunk-80/amer-eastern-time-gmt/2020-07-20" class="btn btn-primary">Jul 20
+
+                        &ndash; Jul 22
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-12_278" class="btn btn-primary">Aug 12
+
+                        &ndash; Aug 14
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-26_273" class="btn btn-primary">Aug 26
+
+                        &ndash; Aug 28
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-09_275" class="btn btn-primary">Sep 9
+
+                        &ndash; Sep 11
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-16_277" class="btn btn-primary">Sep 16
+
+                        &ndash; Sep 18
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-30_281" class="btn btn-primary">Sep 30
+
+                        &ndash; Oct 2
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-10-05_282" class="btn btn-primary">Oct 5
+
+                        &ndash; Oct 7
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/advanced-searching-and-reporting/advanced-searching-and-reporting-with-splunk-80/amer-eastern-time-gmt/2020-10-14" class="btn btn-primary">Oct 14
+
+                        &ndash; Oct 16
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+        </ul>
+            <h3>EMEA UK Time - Virtual</h3>
+        <ul class="events-by-location-list">
+                                                                            
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-07-22_26" class="btn btn-primary">Jul 22
+
+                        &ndash; Jul 24
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-12_22" class="btn btn-primary">Aug 12
+
+                        &ndash; Aug 14
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-09_23" class="btn btn-primary">Sep 9
+
+                        &ndash; Sep 11
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-10-07_24" class="btn btn-primary">Oct 7
+
+                        &ndash; Oct 9
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-10-28_25" class="btn btn-primary">Oct 28
+
+                        &ndash; Oct 30
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+        </ul>
+            <h3>APAC Singapore - Virtual</h3>
+        <ul class="events-by-location-list">
+                                        
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-08-19_180" class="btn btn-primary">Aug 19
+
+                        &ndash; Aug 21
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+            <li>
+                    <img style="float: right;" src="/images/icons/yes.png" class="icon" alt="Confirmed"/>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/Advanced-Searching-and-Reporting-with-Splunk_virtual_2020-09-23_181" class="btn btn-primary">Sep 23
+
+                        &ndash; Sep 25
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 1500.00 USD
+                </div>
+            </li>
+
+        </ul>
+            <h3>Ingeniq</h3>
+        <ul class="events-by-location-list">
+                            
+            <li>
+                <div style="margin:10px 0px 5px;">
+                    <span class="buttons"><a href="/class/advanced-searching-and-reporting/advanced-searching-and-reporting-with-splunk-80/ingeniq/2020-09-16" class="btn btn-primary">Sep 16
+
+                        &ndash; Sep 18
+                    </a></span>
+                    </br>
+                </div>
+                    <div>
+9:00 AM                                -
+1:30 PM    <span class="time-zone">
+AEST    </span>
+                    </div>
+                <div class="courseEventQuickInfo">
+                        $ 2160.00 AUD
+                </div>
+            </li>
+
+        </ul>
+<div class="blurb blurb-placeholder" style="display:none;">
+<a style="display: none;" id="trainingCourseWithWithConfirmedClassesMessage" class="inlineAdminLink" href="/admin/blurb/edit/85.html" title="Edit"><img src="/images/icons/edit.png" alt="Edit"/></a> <p><em>[trainingCourseWithWithConfirmedClassesMessage]</em></p></div>
+            <br style="margin-top: 10px;"/>
+        <div>
+                <p>Don't see a date that works for you?</p>
+            <p><a href="/training/request_a_class.html?course=474" class="btn btn-primary">Request Class</a></p>
+        </div>
+        <!-- end of public training -->
+    </div>
+
+                    <!-- upcomming-classes-widget /store/training/upcomingClasses.ftl End -->
+                </div>
+                <div class="training-widget" id="related-knowledge-categories-widget">
+                    <!-- related-knowledge-categories-widget /store/training/relatedKnowledgeCategories.ftl Start -->
+                    
+
+
+
+
+
+    <div class="widget">
+            <div id="related-knowledge-categories"> <!-- start of related categories -->
+                <h2>Related Categories</h2>
+                <ul>
+                        <li>
+                            <a href='/category/splunk-courses'>Splunk Courses</a>
+                        </li>
+                        <li>
+                            <a href='/category/advanced-searching-and-reporting'>Advanced Searching and Reporting</a>
+                        </li>
+                </ul>
+            </div> <!-- end of related categories -->
+    </div>
+
+                    <!-- related-knowledge-categories-widget /store/training/relatedKnowledgeCategories.ftl End -->
+                </div>
+                <div class="training-widget" id="related-courses-widget">
+                    <!-- related-courses-widget /store/training/relatedCourses.ftl Start -->
+                    
+
+
+
+
+
+
+
+
+    <div class="widget">
+        <div id="related-courses-info"> <!-- start of related courses -->
+            <h2>Related Courses</h2>
+            <ul>
+                    <li>
+                        <a href='/instructor-led-training/advanced-searching-and-reporting-with-splunk-801'>Advanced Searching and Reporting with Splunk 8.0.1</a>
+                    </li>
+            </ul>
+        </div> <!-- end of related courses -->
+    </div>
+
+
+                    <!-- related-courses-widget /store/training/relatedCourses.ftl End -->
+                </div>
+
+
+
+
+
+<div class="blurb blurb-placeholder" style="display:none;">
+<a style="display: none;" id="trainingSide" class="inlineAdminLink" href="/admin/blurb/edit/44.html" title="Edit"><img src="/images/icons/edit.png" alt="Edit"/></a> <p><em>[trainingSide]</em></p></div>
+<div class="blurb blurb-placeholder" style="display:none;">
+<a style="display: none;" id="pageSideBottom" class="inlineAdminLink" href="/admin/blurb/edit/91.html" title="Edit"><img src="/images/icons/edit.png" alt="Edit"/></a> <p><em>[pageSideBottom]</em></p></div>                </div> <!-- #main-side -->
+            </div> <!-- #main-content -->
+        </div> <!-- #main-outer -->
+    </div> <!-- #main -->
+</div>
+
+<div class="lde-branding">
+<div class="blurb">
+<footer class="fat-footer" id="footer">
+    <div class="footerIParsys iparsys parsys">
+        <div class="iparys_inherited">
+            <div class="footerIParsys iparsys parsys">
+                <div class="globalFooter-v2 parbase section">
+                    <!-- footer -->
+                    <footer class="splunk-footer fat-footer splunk-footer-v2" id="footer">
+                        <div class="section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="copyright-section container">
+                                        <div class="col-sm-12 map-links">
+                                            <a href="https://www.splunk.com" class="footer">
+                                                <img class="footer-logo" src="/static/skin/lde-skin-splunk/resources/images/logos/splunk-logo.svg" alt="Splunk" title="Splunk">
+                                            </a>
+                                            <span class="copyright">© 2005-<script type="text/javascript">document.write(new Date().getFullYear());</script> Splunk Inc. All rights reserved.</span>
+                                            <ul>
+                                                <li>
+                                                    <a href="https://www.splunk.com/en_us/site-map.html" target="_parent" class="footer">Sitemap</a>|
+                                                </li>
+
+                                                <li>
+                                                    <a href="https://www.splunk.com/en_us/about-us/contact.html" target="_parent" class="footer">Contact</a>|
+                                                </li>
+
+                                                <li>
+                                                    <a href="https://www.splunk.com/en_us/about-us/careers.html" target="_parent" class="footer">Careers</a>|
+                                                </li>
+
+                                                <li>
+                                                    <a href="https://www.splunk.com/en_us/legal/privacy/privacy-policy.html" target="_parent" class="footer">Privacy</a>|
+                                                </li>
+
+                                                <li>
+                                                    <a href="https://www.splunk.com/en_us/legal/terms/terms-of-use.html" target="_parent" class="footer">Terms of Use</a>|
+                                                </li>
+
+                                                <li>
+                                                    <a href="https://www.splunk.com/en_us/legal/export-controls.html" target="_parent" class="footer">Export Control</a>|
+                                                </li>
+
+                                                <li>
+                                                    <a href="https://www.splunk.com/pdfs/legal/splunk-modern-slavery-act-transparancy-statement.pdf" target="_blank" class="footer">Modern Slavery Statement</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="copyright-links"><span>Splunk&gt;, Listen to Your Data, The Engine for Machine Data, Splunk Cloud, Splunk Light and SPL are trademarks and registered trademarks of Splunk Inc. in the United States and other countries. All other brand names, product names, or trademarks belong to their respective owners. © <script type="text/javascript">document.write(new Date().getFullYear());</script> Splunk Inc. All rights reserved.</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- end: footer section -->
+                    <script>
+                        var footerelems = $('.splunk-footer').length;
+                        if (footerelems > 1) {
+                            $('.splunk-footer').first().removeClass('splunk-footer');
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer></div> <!-- blurb -->
+</div><!-- /common/tracking/googleAnalyticsHeader.ftl widget start -->
+    
+
+        <script type="text/javascript">
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-12345-6'); 
+        </script>
+<!-- /common/tracking/googleAnalyticsHeader.ftl widget end -->
+<!-- /WEB-INF/jsp/include/browserWorkarounds.jsp widget start -->
+    <script type="text/javascript">
+/**
+ * This function fixes an issue with IE7 and earlier where image buttons are
+ * submitted as coordinates, not their values. The function attaches an onclick
+ * handler that dynamically creates a hidden input field that contains the
+ * value.
+ */
+function imageButtonFix() {
+    var inputs = document.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type == 'image') {
+            inputs[i].onclickOld = inputs[i].onclick;
+            inputs[i].onclick = function (event) {
+                addHiddenField(this.form, this.name, this.value);
+                if (this.onclickOld) {
+                    this.onclickOld(event);
+                }
+            };
+        }
+    }
+}
+/**
+ * This function fixes multiple-button-submit issue of IE6 as well as
+ * value-submitted-as-label of IE7 and earlier. The solution comes from: from
+ * http://www.kopz.org/public/documents/css/multiple_buttons_ie_workaround.html
+ */
+function buttonFix() {
+    var buttons = document.getElementsByTagName('button');
+    for (var i = 0; i < buttons.length; i++) {
+        var button = buttons[i];
+        if (!button.form || button.form == null || button.type != 'submit') {
+            continue;
+        }
+        if (button.onclick) {
+            button.onclickOld = button.onclick;
+        }
+        button.onclick = function () {
+            for (var j = 0; j < this.form.elements.length; j++) {
+                if (this.form.elements[j].tagName == 'BUTTON') {
+                    this.form.elements[j].disabled = true;
+                }
+            }
+            this.disabled = false;
+            var valueAttributeNode = this.attributes.getNamedItem("value");
+            if (valueAttributeNode) {
+                this.value = valueAttributeNode.nodeValue;
+            }
+            if (this.onclickOld) {
+                return this.onclickOld();
+            } else {
+                return true;
+            }
+        }
+    }
+}
+  imageButtonFix();
+</script>
+<!--[if lt IE 8]>
+<script type="text/javascript">
+  buttonFix();
+</script>
+<![endif]-->
+<!-- /WEB-INF/jsp/include/browserWorkarounds.jsp widget end -->
+<!-- /common/tracking/googleAnalytics.ftl widget start -->
+    
+
+        <script type="text/javascript">
+
+            ga('send', 'pageview');
+        </script>
+<!-- /common/tracking/googleAnalytics.ftl widget end -->
+<script src="/static/skin/lde-skin-splunk/resources/javascript/dist.js"></script>
+
+<script src="/static/skin/lde-skin-splunk/resources/javascript/collapse-custom.js"></script>
+<script>
+$(function(){
+	$(".accordion-toggle").each(function() {
+		$(this).attr("data-toggle", "collapse-custom");
+	})
+})
+</script>
+
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create',
+            {
+                'trackingId': 'UA-34063155-1',
+                'name': 'ldeTracker'
+            }
+        ); 
+
+        ga('ldeTracker.set', 'dimension1', 'splunk'); 
+        ga('ldeTracker.set', 'dimension2', '2020.2.8.0'); 
+        ga('ldeTracker.set', 'dimension3', ''); 
+
+        ga('ldeTracker.send', 'pageview'); 
+    </script>
+
+
+
+
+            <!-- No key configured for segment -->
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"errorBeacon":"bam.nr-data.net","licenseKey":"f0dbcb6faf","agent":"","beacon":"bam.nr-data.net","applicationTime":2182,"applicationID":"160575401","transactionName":"ZFdXYUFUXEJXUUUNWF0dZkVBXFxWdV1fEEVcXllQQRpbX0VGQxFUR11HGF9QVhxCQFANWVpcUhoZHxIZcXdlTQ==","queueTime":0}</script></body>
+
+</html>
